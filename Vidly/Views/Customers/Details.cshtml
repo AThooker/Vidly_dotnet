@@ -1,0 +1,33 @@
+﻿@model Vidly.Models.Customer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@Model.Name</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Membership Type:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MembershipType.Type)
+        </dd>
+        @if (Model.Birthday != null)
+        {
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Birthday):
+            </dt>
+
+            <dd>
+                @Model.Birthday.Value.ToLongDateString()
+                @*@Html.DisplayFor(model => model.Birthday)*@
+            </dd>
+        }
+
+    </dl>
+</div>

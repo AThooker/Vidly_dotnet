@@ -45,7 +45,40 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.3\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.2.2\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.2.2\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -119,14 +152,76 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202206101408417_InitialModel.cs" />
+    <Compile Include="Migrations\202206101408417_InitialModel.designer.cs">
+      <DependentUpon>202206101408417_InitialModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206101415524_AddIsSubscribedToCustomer.cs" />
+    <Compile Include="Migrations\202206101415524_AddIsSubscribedToCustomer.designer.cs">
+      <DependentUpon>202206101415524_AddIsSubscribedToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206101419009_AddMembershipType.cs" />
+    <Compile Include="Migrations\202206101419009_AddMembershipType.designer.cs">
+      <DependentUpon>202206101419009_AddMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206101420426_PopulateMembershipTypes.cs" />
+    <Compile Include="Migrations\202206101420426_PopulateMembershipTypes.designer.cs">
+      <DependentUpon>202206101420426_PopulateMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206101425597_UpdateForeignKey.cs" />
+    <Compile Include="Migrations\202206101425597_UpdateForeignKey.designer.cs">
+      <DependentUpon>202206101425597_UpdateForeignKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206101429462_ApplyAnnotationsToCustomerName.cs" />
+    <Compile Include="Migrations\202206101429462_ApplyAnnotationsToCustomerName.designer.cs">
+      <DependentUpon>202206101429462_ApplyAnnotationsToCustomerName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206101456100_UpdateCustomerControllerAndLowerCaseID%27s.cs" />
+    <Compile Include="Migrations\202206101456100_UpdateCustomerControllerAndLowerCaseID%27s.designer.cs">
+      <DependentUpon>202206101456100_UpdateCustomerControllerAndLowerCaseID%27s.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206101500210_AddingMembershipTypeName.cs" />
+    <Compile Include="Migrations\202206101500210_AddingMembershipTypeName.designer.cs">
+      <DependentUpon>202206101500210_AddingMembershipTypeName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206101501584_NamingMembershipTypes.cs" />
+    <Compile Include="Migrations\202206101501584_NamingMembershipTypes.designer.cs">
+      <DependentUpon>202206101501584_NamingMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206101510451_FixingRecentUpdateToMembershipTypes.cs" />
+    <Compile Include="Migrations\202206101510451_FixingRecentUpdateToMembershipTypes.designer.cs">
+      <DependentUpon>202206101510451_FixingRecentUpdateToMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206101518521_BirthdayToCustomer.cs" />
+    <Compile Include="Migrations\202206101518521_BirthdayToCustomer.Designer.cs">
+      <DependentUpon>202206101518521_BirthdayToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206101538394_PopulationGenreTable.cs" />
+    <Compile Include="Migrations\202206101538394_PopulationGenreTable.Designer.cs">
+      <DependentUpon>202206101538394_PopulationGenreTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\RandomMovieViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-lumen.css" />
@@ -166,6 +261,31 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Movies\Random.cshtml" />
+    <Content Include="Views\Shared\_NavBar.cshtml" />
+    <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Movies\Index.cshtml" />
+    <Content Include="Views\Movies\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -182,6 +302,44 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202206101408417_InitialModel.resx">
+      <DependentUpon>202206101408417_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206101415524_AddIsSubscribedToCustomer.resx">
+      <DependentUpon>202206101415524_AddIsSubscribedToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206101419009_AddMembershipType.resx">
+      <DependentUpon>202206101419009_AddMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206101420426_PopulateMembershipTypes.resx">
+      <DependentUpon>202206101420426_PopulateMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206101425597_UpdateForeignKey.resx">
+      <DependentUpon>202206101425597_UpdateForeignKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206101429462_ApplyAnnotationsToCustomerName.resx">
+      <DependentUpon>202206101429462_ApplyAnnotationsToCustomerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206101456100_UpdateCustomerControllerAndLowerCaseID%27s.resx">
+      <DependentUpon>202206101456100_UpdateCustomerControllerAndLowerCaseID%27s.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206101500210_AddingMembershipTypeName.resx">
+      <DependentUpon>202206101500210_AddingMembershipTypeName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206101501584_NamingMembershipTypes.resx">
+      <DependentUpon>202206101501584_NamingMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206101510451_FixingRecentUpdateToMembershipTypes.resx">
+      <DependentUpon>202206101510451_FixingRecentUpdateToMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206101518521_BirthdayToCustomer.resx">
+      <DependentUpon>202206101518521_BirthdayToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206101538394_PopulationGenreTable.resx">
+      <DependentUpon>202206101538394_PopulationGenreTable.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

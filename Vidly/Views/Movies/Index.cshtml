@@ -10,7 +10,10 @@
 <table class="table table-bordered table-hover">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            Movie
+        </th>
+        <th>
+            Genre
         </th>
         <th></th>
     </tr>
@@ -18,12 +21,10 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
+            @Html.ActionLink(item.Name, "Details", "Movies", new { Id = item.Id }, null)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.DisplayFor(modelItem => item.Genre.Name)
         </td>
     </tr>
 }

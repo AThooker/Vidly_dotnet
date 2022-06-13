@@ -17,8 +17,10 @@ namespace Vidly.Models
         //Navigational property - lets you navigate from one type to another
         public MembershipType MembershipType { get; set; }
         //foreign key property
+        [Display(Name = "Membership Type")]
         public byte MembershipTypeId { get; set; }
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
+        [Display(Name = "Date of Birth")]
         public DateTime? Birthday { get; set; }
     }
 }

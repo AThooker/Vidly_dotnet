@@ -185,6 +185,6 @@ C:\Users\austin.hooker\MiscProjects\Vidly\Vidly_dotnet\Vidly\obj\Debug\Vidly.Mig
 C:\Users\austin.hooker\MiscProjects\Vidly\Vidly_dotnet\Vidly\obj\Debug\Vidly.Migrations.PopulationGenreTable.resources
 C:\Users\austin.hooker\MiscProjects\Vidly\Vidly_dotnet\Vidly\obj\Debug\Vidly.csproj.GenerateResource.cache
 C:\Users\austin.hooker\MiscProjects\Vidly\Vidly_dotnet\Vidly\obj\Debug\Vidly.csproj.CoreCompileInputs.cache
-C:\Users\austin.hooker\MiscProjects\Vidly\Vidly_dotnet\Vidly\obj\Debug\Vidly.csproj.CopyComplete
 C:\Users\austin.hooker\MiscProjects\Vidly\Vidly_dotnet\Vidly\obj\Debug\Vidly.dll
 C:\Users\austin.hooker\MiscProjects\Vidly\Vidly_dotnet\Vidly\obj\Debug\Vidly.pdb
+C:\Users\austin.hooker\MiscProjects\Vidly\Vidly_dotnet\Vidly\obj\Debug\Vidly.csproj.AssemblyReference.cache

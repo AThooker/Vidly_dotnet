@@ -6,6 +6,8 @@
 }
 
 <h2>Customers</h2>
+<p>@Html.ActionLink("Add Customer", "Create", "Customers", null, new { @class = "btn btn-warning" })</p>
+
 @if (!Model.Any())
 {
     <p>NO CUSTOMERS REGISTERED</p>

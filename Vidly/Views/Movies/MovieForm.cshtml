@@ -4,17 +4,27 @@
     ViewBag.Title = "MovieForm";
 }
 
-<h2>MovieForm</h2>
-
-@using (Html.BeginForm())
+@if (Model.Id != 0)
 {
+    <h2>Edit Movie</h2>
+}
+else
+{
+    <h2>New Movie</h2>
+}
+
+@using (Html.BeginForm("Save", "Movies"))
+{
+    @Html.ValidationSummary(true, "Please fix the appropriate errors:")
     <div class="form-group">
-        @Html.LabelFor(m => m.Movie.Name)
-        @Html.TextAreaFor(m => m.Movie.Name, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Name)
+        @Html.TextAreaFor(m => m.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Name)
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Movie.ReleaseDate)
-        @Html.TextBoxFor(m => m.Movie.ReleaseDate, "{0:d MMM yyyy}", new { @class = "form-control" })
+        @Html.LabelFor(m => m.ReleaseDate)
+        @Html.TextBoxFor(m => m.ReleaseDate, "{0:d MMM yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ReleaseDate)
     </div>
     @*<div class="form-group">
             @Html.LabelFor(m => m.IsSubscribedToNewsLetter)
@@ -22,15 +32,22 @@
         </div>*@
     <div class="form-group">
         @Html.LabelFor(m => m.Genres)
-        @Html.DropDownListFor(m => m.Genres, new SelectList(Model.Genres, "Id", "Name"), "Select Genre", new { @class = "form-control" })
+        @Html.DropDownListFor(m => m.GenreId, new SelectList(Model.Genres, "Id", "Name"), "Select Genre", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.GenreId)
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(m => m.Movie.NumberInStock)
-        @Html.EditorFor(m => m.Movie.NumberInStock)
+        @Html.LabelFor(m => m.NumberInStock)
+        @Html.TextBoxFor(m => m.NumberInStock)
+        @Html.ValidationMessageFor(m => m.NumberInStock)
     </div>
 
-    @Html.HiddenFor(m => m.Movie.Id)
-    <button type="submit" class="btn btn-primary">Save</button>
+    @Html.HiddenFor(m => m.Id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary btn-warning">Add Movie</button>
+}
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
 }
 

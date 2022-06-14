@@ -188,3 +188,14 @@ C:\Users\austin.hooker\MiscProjects\Vidly\Vidly_dotnet\Vidly\obj\Debug\Vidly.csp
 C:\Users\austin.hooker\MiscProjects\Vidly\Vidly_dotnet\Vidly\obj\Debug\Vidly.dll
 C:\Users\austin.hooker\MiscProjects\Vidly\Vidly_dotnet\Vidly\obj\Debug\Vidly.pdb
 C:\Users\austin.hooker\MiscProjects\Vidly\Vidly_dotnet\Vidly\obj\Debug\Vidly.csproj.AssemblyReference.cache
+C:\Users\austin.hooker\MiscProjects\Vidly\Vidly_dotnet\Vidly\obj\Debug\Vidly.Migrations.UpdatedMovieEntity.resources
+C:\Users\austin.hooker\MiscProjects\Vidly\Vidly_dotnet\Vidly\obj\Debug\Vidly.Migrations.ReleaseDateNullable.resources
+C:\Users\austin.hooker\MiscProjects\Vidly\Vidly_dotnet\Vidly\obj\Debug\Vidly.Migrations.UpdateDateTime.resources
+C:\Users\austin.hooker\MiscProjects\Vidly\Vidly_dotnet\Vidly\bin\System.Net.Http.Formatting.dll
+C:\Users\austin.hooker\MiscProjects\Vidly\Vidly_dotnet\Vidly\bin\System.Web.Http.dll
+C:\Users\austin.hooker\MiscProjects\Vidly\Vidly_dotnet\Vidly\bin\System.Web.Http.WebHost.dll
+C:\Users\austin.hooker\MiscProjects\Vidly\Vidly_dotnet\Vidly\bin\System.Net.Http.Formatting.xml
+C:\Users\austin.hooker\MiscProjects\Vidly\Vidly_dotnet\Vidly\bin\System.Web.Http.xml
+C:\Users\austin.hooker\MiscProjects\Vidly\Vidly_dotnet\Vidly\bin\System.Web.Http.WebHost.xml
+C:\Users\austin.hooker\MiscProjects\Vidly\Vidly_dotnet\Vidly\bin\AutoMapper.dll
+C:\Users\austin.hooker\MiscProjects\Vidly\Vidly_dotnet\Vidly\bin\AutoMapper.xml

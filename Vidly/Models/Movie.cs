@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -12,15 +13,19 @@ namespace Vidly.Models
         [Required]
         public string Name { get; set; }
         //nav property
-        [Required]
         public Genre Genre { get; set; }
-        public int GenreId { get; set; }
+        [Required]
+        [Display(Name = "Genre")]
+        public int? GenreId { get; set; }
+        [Column(TypeName = "datetime2")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         [Display(Name = "Released Date")]
         [Required]
-        public DateTime ReleaseDate { get; set; }
+        public DateTime? ReleaseDate { get; set; }
         [Display(Name = "Date Added")]
-        public DateTime DateAdded { get; set; }
+        public DateTime DateAdded { get; set; } = DateTime.Now;
         [Display(Name = "Number in Stock")]
+        [Range(1,20)]
         public int NumberInStock { get; set; }
     }
 }

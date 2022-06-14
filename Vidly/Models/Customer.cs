@@ -10,7 +10,7 @@ namespace Vidly.Models
     {
         public int Id { get; set; }
         //Data Annotations - overriding code-first conventions
-        [Required]
+        [Required(ErrorMessage = "Please enter customer's name")]
         [StringLength(255)]
         public string Name { get; set; }
         public bool IsSubscribedToNewsLetter { get; set; }
@@ -21,6 +21,7 @@ namespace Vidly.Models
         public byte MembershipTypeId { get; set; }
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         [Display(Name = "Date of Birth")]
+        [Min18YearsIfMember]
         public DateTime? Birthday { get; set; }
     }
 }

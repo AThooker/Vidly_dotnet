@@ -22,19 +22,40 @@ namespace Vidly.Controllers
         {
             _context.Dispose();
         }
-        //Get Create Customer
+        // GET: Customers
+
+        public ActionResult Index()
+        {
+            //eager loading to bring in membershipType object with customers
+            var customers = _context.Customers.Include(c => c.MembershipType).ToList();
+            return View(customers);
+        }
+        //Get Create Customer - CustomerForm view
         public ActionResult Create()
         {
             var membershipTypes = _context.MembershipTypes.ToList();
             var viewModel = new CustomerFormViewModel
             {
+                Customer = new Customer(),
                 MembershipTypes = membershipTypes
             };
             return View("CustomerForm", viewModel);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)
         {
+            //validation - checking if the user input is valid - hence, if modelstate is not valid, do this
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new CustomerFormViewModel
+                {
+                    Customer = customer,
+                    MembershipTypes = _context.MembershipTypes.ToList()
+                };
+
+                return View("CustomerForm", viewModel);
+            }
             if (customer.Id == 0)
             {
                 _context.Customers.Add(customer);
@@ -51,14 +72,6 @@ namespace Vidly.Controllers
             return RedirectToAction("Index", "Customers");
         }
 
-        // GET: Customers
-
-        public ActionResult Index()
-        {
-            //eager loading to bring in membershipType object with customers
-            var customers = _context.Customers.Include(c => c.MembershipType).ToList();
-            return View(customers);
-        }
 
         //GET: Details
         public ActionResult Details(int? id)

@@ -20,26 +20,43 @@ namespace Vidly.Controllers
         {
             _context.Dispose();
         }
-        //GET Create
+        // Index (list)
+        public ActionResult Index()
+        {
+            var movies = _context.Movies.Include(c => c.Genre).ToList();
+            return View(movies);
+        }
+        //GET Create - MovieForm view
         public ActionResult Create()
         {
             var genres = _context.Genres.ToList();
             var movie = new MovieFormViewModel
-            {
-                Genres = genres
+                {
+                    //Movie = new Movie(),
+                    Genres = genres
                 };
             return View("MovieForm", movie);
         }
+        //POST Create movie or edit if pre-exisitng
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Movie movie)
         {
+            if(!ModelState.IsValid)
+            {
+                var viewModel = new MovieFormViewModel(movie)
+                {
+                    Genres = _context.Genres.ToList()
+                };
+                return View("MovieForm", viewModel);
+            }
             if(movie.Id == 0)
             {
                 _context.Movies.Add(movie);
             }
             else
             {
-                var movieInDb = _context.Movies.SingleOrDefault(m => m.Id == movie.Id);
+                var movieInDb = _context.Movies.Single(m => m.Id == movie.Id);
                 movieInDb.Name = movie.Name;
                 movieInDb.GenreId = movie.GenreId;
                 movieInDb.ReleaseDate = movie.ReleaseDate;
@@ -48,13 +65,7 @@ namespace Vidly.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index", "Movies");
         }
-        // GET: Radnom
-        public ActionResult Index()
-        {
-            var movies = _context.Movies.Include(c => c.Genre).ToList();
-            return View(movies);
-        }
-
+        //GET Details
         public ActionResult Details(int id)
         {
             var movie = _context.Movies.Include(c => c.Genre).SingleOrDefault(m => m.Id == id);
@@ -64,6 +75,7 @@ namespace Vidly.Controllers
             }
             return View(movie);
         }
+        //GET Edit
         public ActionResult Edit(int id)
         {
             var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
@@ -71,9 +83,8 @@ namespace Vidly.Controllers
             {
                 return HttpNotFound();
             }
-            var viewModel = new MovieFormViewModel
+            var viewModel = new MovieFormViewModel(movie)
             {
-                Movie = movie,
                 Genres = _context.Genres.ToList()
             };
             return View("MovieForm", viewModel);

@@ -18,6 +18,7 @@ namespace Vidly.Dtos
         //Navigational property - lets you navigate from one type to another
         //foreign key property
         public byte MembershipTypeId { get; set; }
+        public MembershipTypeDto MembershipType { get; set; }
         //[Min18YearsIfMember]
         public DateTime? Birthday { get; set; }
     }

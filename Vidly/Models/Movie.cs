@@ -17,15 +17,19 @@ namespace Vidly.Models
         [Required]
         [Display(Name = "Genre")]
         public int? GenreId { get; set; }
-        [Column(TypeName = "datetime2")]
+        //[Column(TypeName = "datetime2")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         [Display(Name = "Released Date")]
         [Required]
         public DateTime? ReleaseDate { get; set; }
         [Display(Name = "Date Added")]
-        public DateTime DateAdded { get; set; } = DateTime.Now;
+        public DateTime DateAdded { get; set; }
         [Display(Name = "Number in Stock")]
         [Range(1,20)]
         public int NumberInStock { get; set; }
+        public Movie()
+        {
+            DateAdded = DateTime.Now;
+        }
     }
 }

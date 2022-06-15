@@ -199,3 +199,8 @@ C:\Users\austin.hooker\MiscProjects\Vidly\Vidly_dotnet\Vidly\bin\System.Web.Http
 C:\Users\austin.hooker\MiscProjects\Vidly\Vidly_dotnet\Vidly\bin\System.Web.Http.WebHost.xml
 C:\Users\austin.hooker\MiscProjects\Vidly\Vidly_dotnet\Vidly\bin\AutoMapper.dll
 C:\Users\austin.hooker\MiscProjects\Vidly\Vidly_dotnet\Vidly\bin\AutoMapper.xml
+C:\Users\austin.hooker\MiscProjects\Vidly\Vidly_dotnet\Vidly\obj\Debug\Vidly.Migrations.PlayingWithReleaseDateTime.resources
+C:\Users\austin.hooker\MiscProjects\Vidly\Vidly_dotnet\Vidly\obj\Debug\Vidly.Migrations.SeedUsers.resources
+C:\Users\austin.hooker\MiscProjects\Vidly\Vidly_dotnet\Vidly\obj\Debug\Vidly.Migrations.DriversLicenseAppUser.resources
+C:\Users\austin.hooker\MiscProjects\Vidly\Vidly_dotnet\Vidly\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\austin.hooker\MiscProjects\Vidly\Vidly_dotnet\Vidly\bin\Microsoft.Owin.Security.Facebook.xml

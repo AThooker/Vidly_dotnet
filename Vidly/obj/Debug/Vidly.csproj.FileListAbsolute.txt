@@ -204,3 +204,5 @@ C:\Users\austin.hooker\MiscProjects\Vidly\Vidly_dotnet\Vidly\obj\Debug\Vidly.Mig
 C:\Users\austin.hooker\MiscProjects\Vidly\Vidly_dotnet\Vidly\obj\Debug\Vidly.Migrations.DriversLicenseAppUser.resources
 C:\Users\austin.hooker\MiscProjects\Vidly\Vidly_dotnet\Vidly\bin\Microsoft.Owin.Security.Facebook.dll
 C:\Users\austin.hooker\MiscProjects\Vidly\Vidly_dotnet\Vidly\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\austin.hooker\MiscProjects\Vidly\Vidly_dotnet\Vidly\obj\Debug\Vidly.Migrations.AddedRentalDomainModel.resources
+C:\Users\austin.hooker\MiscProjects\Vidly\Vidly_dotnet\Vidly\obj\Debug\Vidly.Migrations.AddNumberAvailableToMovieDomainModel.resources
